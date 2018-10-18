@@ -38,6 +38,6 @@
 
 Какие знания и навыки мы можем использовать и применить к нашему будущему коду?
 
-<!-- [пример реализации mvc]: readme-assets/mvc-hospital-example.md -->
-[шаблон дизайна Википедия]:http://en.wikipedia.org/wiki/Software_design_pattern
-[wikipedia mvc]:https://ru.wikipedia.org/wiki/Model-View-Controller
+[пример реализации mvc]: readme-assets/mvc-hospital-example.md
+[шаблон дизайна Википедия]: http://en.wikipedia.org/wiki/Software_design_pattern
+[wikipedia mvc]: https://ru.wikipedia.org/wiki/Model-View-Controller
