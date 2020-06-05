@@ -53,11 +53,10 @@ class PatientView {
 ### Hospital Model
 ```js
 class Hospital {
-  #name
   #patients
   
   constructor(name, patients) {
-    this.#name = name;
+    this.name = name;
     this.#patients = patients;
   }
 
