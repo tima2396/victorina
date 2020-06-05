@@ -9,6 +9,7 @@ class Patient {
   #dateOfBirth
   #medicalRecordsNumber
   #name
+  
   constructor(dateOfBirth, medicalRecordsNumber, name) {
     this.#dateOfBirth = dateOfBirth;
     this.#medicalRecordsNumber = medicalRecordsNumber;
@@ -54,6 +55,7 @@ class PatientView {
 class Hospital {
   #name
   #patients
+  
   constructor(name, patients) {
     this.#name = name;
     this.#patients = patients;
@@ -90,6 +92,7 @@ class HospitalView {
 ```js
 class HospitalController {
   #hospital
+  
   constructor(hospital) {
     this.#hospital = hospital;
   }
