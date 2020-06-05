@@ -6,24 +6,27 @@
 ### Patient Model
 ```js
 class Patient {
+  #dateOfBirth
+  #medicalRecordsNumber
+  #name
   constructor(dateOfBirth, medicalRecordsNumber, name) {
-    this.dateOfBirth = dateOfBirth;
-    this.medicalRecordsNumber = medicalRecordsNumber;
-    this.name = name;
+    this.#dateOfBirth = dateOfBirth;
+    this.#medicalRecordsNumber = medicalRecordsNumber;
+    this.#name = name;
   }
 
   // dateOfBirth
   get dob() {
-    return this.dateOfBirth;
+    return this.#dateOfBirth;
   }
 
   // medicalRecordsNumber
   get mrn() {
-    return this.medicalRecordsNumber;
+    return this.#medicalRecordsNumber;
   }
 
   get name() {
-    return this.name;
+    return this.#name;
   }
 
 }
@@ -49,22 +52,24 @@ class PatientView {
 ### Hospital Model
 ```js
 class Hospital {
+  #name
+  #patients
   constructor(name, patients) {
-    this.name = name;
-    this.patients = patients;
+    this.#name = name;
+    this.#patients = patients;
   }
 
   get patients() {
-    return this.patients;
+    return this.#patients;
   }
 
   // assume that there is only one patient with name
   findPatientByName(name) {
-    return this.patients.find(patient => patient.name === name);
+    return this.#patients.find(patient => patient.name === name);
   }
 
   patientsCount() {
-    return this.patients.count;
+    return this.#patients.count;
   }
 }
 ```
@@ -84,8 +89,9 @@ class HospitalView {
 
 ```js
 class HospitalController {
+  #hospital
   constructor(hospital) {
-    this.hospital = hospital;
+    this.#hospital = hospital;
   }
 
   run(command, options) {
@@ -97,15 +103,15 @@ class HospitalController {
   }
 
   get hospital() {
-    return this.hospital;
+    return this.#hospital;
   }
 
   show_hospital() {
-    HospitalView.show(this.hospital);
+    HospitalView.show(this.#hospital);
   }
 
   show_patient(search_name) {
-    let patient = this.hospital.findPatientByName(search_name);
+    let patient = this.#hospital.findPatientByName(search_name);
     if(patient) {
       PatientView.show(patient);
     }
