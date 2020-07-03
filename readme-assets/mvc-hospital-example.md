@@ -84,10 +84,9 @@ class HospitalView {
 
 ```js
 class HospitalController {
-  #hospital
-  
+
   constructor(hospital) {
-    this.#hospital = hospital;
+    this.hospital = hospital;
   }
 
   run(command, options) {
