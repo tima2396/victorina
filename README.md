@@ -39,7 +39,7 @@ There should be a minimum of code in `runner.js`! Initialization of the controll
 
 When completing the assignment, follow the MVC design pattern as closely as possible. Your implementation is likely to be different from other command implementations, and that's okay.
 
-*Note 1:* Here is a [sample MVC implementation] [example mvc implementation] for a hospital related application. However, it is quite complicated. To get started, you can search the internet for more basic examples.
+*Note 1:* Here is an [example of MVC implementation](https://github.com/Elbrus-Bootcamp/project-flashcards-console/blob/master/readme-assets/mvc-hospital-example.md):  for a hospital related application. However, it is quite complicated. To get started, you can search the internet for more basic examples.
 
 *Note 2:* There are already some code snippets in the project that can help you figure out the relationships between model, view and controller. However, for them to work, you need to solve several problems. Think about what happens to the context (this) when we pass any controller method as an argument.
 
