@@ -11,7 +11,7 @@ You are going to create a flashcard application that should work as shown in Fig
 
 ### Model-View-Controller
 
-There is one more interesting requirement in this challenge. You need to follow the [design pattern Wikipedia] called [Model-View-Controller] [wikipedia mvc] (MVC). Before you start making releases, make sure you can answer the following questions:
+There is one more interesting requirement in this challenge. You need to follow the [design pattern] called [Model-View-Controller] (MVC). Before you start making releases, make sure you can answer the following questions:
 
 - What is Model?
 - How is View used?
@@ -51,5 +51,5 @@ Time to code! You have a folder named `topics`, which has several files with fla
 Think about the decisions that you made during this task. What were the results of designing the app and following the MVC pattern? 
 
 [example of mvc realization]: readme-assets/mvc-hospital-example.md
-[design pattern Wikipedia]: http://en.wikipedia.org/wiki/Software_design_pattern
-[wikipedia mvc]: https://ru.wikipedia.org/wiki/Model-View-Controller
+[design pattern]: http://en.wikipedia.org/wiki/Software_design_pattern
+[Model-View-Controller]: https://ru.wikipedia.org/wiki/Model-View-Controller
