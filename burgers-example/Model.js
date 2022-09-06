@@ -7,10 +7,10 @@ class Model extends EventEmitter {
   #page = 'burgers';
 
   // Массив уже созданных бургеров. Каждый бургер в свою очередь будет представлять
-  // из себя массив ингридиентов. То есть #burgers - это массив массивов.
+  // из себя массив ингредиентов. То есть #burgers - это массив массивов.
   #burgers = [];
 
-  // Бургер, который мы создаём в данный момент. Массив строк-ингридиентов.
+  // Бургер, который мы создаём в данный момент. Массив строк-ингредиентов.
   #currentBurger;
 
   // #page, #burgers, #currentBurger - приватные поля. Чтобы обращаться к ним из
@@ -35,8 +35,8 @@ class Model extends EventEmitter {
     this.emit('update');
   }
 
-  // Добавить новый ингридиент к текущему бургеру
-  addIngridient(indgridient) {
+  // Добавить новый ингредиент к текущему бургеру
+  addIngredient(indgridient) {
     this.#currentBurger.push(indgridient);
     this.emit('update');
   }

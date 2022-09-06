@@ -15,7 +15,7 @@ class Controller {
       // вызываем метод startMakeBurger модели
       () => this.#model.startMakeBurger()
     );
-    this.#view.on('addIngridient', (ingridient) => this.#model.addIngridient(ingridient));
+    this.#view.on('addIngredient', (ingredient) => this.#model.addIngredient(ingredient));
     this.#view.on('stopMakeBurger', () => this.#model.stopMakeBurger());
   }
 

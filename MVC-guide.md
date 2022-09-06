@@ -35,9 +35,9 @@
 
 ![Создание бургера](readme-assets/example-2.png)
 
-Здесь он может вводить новые ингридиенты, чтобы добавить их в бургер.
+Здесь он может вводить новые ингредиенты, чтобы добавить их в бургер.
 
-![Добавление ингридиентов](readme-assets/example-3.png)
+![Добавление ингредиентов](readme-assets/example-3.png)
 
 Процесс продолжается пока пользователь не нажмёт Enter при пустой строке ввода. Затем он перемещается на начальный экран где видит все созданные ранее бургеры.
 
@@ -59,10 +59,10 @@ class Model {
   #page = 'burgers';
 
   // Массив уже созданных бургеров. Каждый бургер в свою очередь будет представлять
-  // из себя массив ингридиентов. То есть #burgers - это массив массивов.
+  // из себя массив ингредиентов. То есть #burgers - это массив массивов.
   #burgers = [];
 
-  // Бургер, который мы создаём в данный момент. Массив строк-ингридиентов.
+  // Бургер, который мы создаём в данный момент. Массив строк-ингредиентов.
   #currentBurger;
 
   // #page, #burgers, #currentBurger - приватные поля. Чтобы обращаться к ним из
@@ -86,8 +86,8 @@ class Model {
     this.#currentBurger = [];
   }
 
-  // Добавить новый ингридиент к текущему бургеру
-  addIngridient(indgridient) {
+  // Добавить новый ингредиент к текущему бургеру
+  addIngredient(indgridient) {
     this.#currentBurger.push(indgridient);
   }
 
@@ -154,9 +154,9 @@ class View {
     View.#printBurger(this.#model.getCurrentBurger());
     console.log();
 
-    console.log('Введите название нового ингридиента или оставьте пустым, чтобы закончить');
-    // считываем следующий ингридиент из командной строки
-    const ingridient = readlineSync.question('> ');
+    console.log('Введите название нового ингредиента или оставьте пустым, чтобы закончить');
+    // считываем следующий ингредиент из командной строки
+    const ingredient = readlineSync.question('> ');
   }
 
   static #printBurger(burger) {
@@ -174,10 +174,10 @@ module.exports = View;
 Подумаем, какие действия совершает пользователь?
 
 - На стартовом экране нажимает любую клавишу, чтобы перейти к странице создания бургера
-- На экране создания бургера вводит название ингридиента и нажимает Enter
+- На экране создания бургера вводит название ингредиента и нажимает Enter
 - Либо на том же экране нажимает Enter, оставляя строку пустой
 
-Соответственно представление будет генерировать три события: makeBurger, addIngridient и stopMakeBurger.
+Соответственно представление будет генерировать три события: makeBurger, addIngredient и stopMakeBurger.
 
 Чтобы сгенерировать события на стороне представления унаследуем его от класса EventEmitter и вызовем унаследованный от EventEmitter метод emit в момент когда событие произошло.
 
@@ -220,14 +220,14 @@ class View extends EventEmitter {
     View.#printBurger(this.#model.getCurrentBurger());
     console.log();
 
-    console.log('Введите название нового ингридиента или оставьте пустым, чтобы закончить');
-    // считываем следующий ингридиент из командной строки
-    const ingridient = readlineSync.question('> ');
+    console.log('Введите название нового ингредиента или оставьте пустым, чтобы закончить');
+    // считываем следующий ингредиент из командной строки
+    const ingredient = readlineSync.question('> ');
 
-    // генерируем событие addIngridient если пользователь хочет добавить ингридиент
+    // генерируем событие addIngredient если пользователь хочет добавить ингредиент
     // и stopMakeBurger если хочет закончить создание бургера
-    if (ingridient) {
-      this.emit('addIngridient', ingridient);
+    if (ingredient) {
+      this.emit('addIngredient', ingredient);
     } else {
       this.emit('stopMakeBurger');
     }
@@ -259,7 +259,7 @@ class Controller {
       // вызываем метод startMakeBurger модели
       () => this.#model.startMakeBurger()
     );
-    this.#view.on('addIngridient', (ingridient) => this.#model.addIngridient(ingridient));
+    this.#view.on('addIngredient', (ingredient) => this.#model.addIngredient(ingredient));
     this.#view.on('stopMakeBurger', () => this.#model.stopMakeBurger());
   }
 
@@ -292,8 +292,8 @@ class Model extends EventEmitter {
     this.emit('update');
   }
 
-  // Добавить новый ингридиент к текущему бургеру
-  addIngridient(indgridient) {
+  // Добавить новый ингредиент к текущему бургеру
+  addIngredient(indgridient) {
     this.#currentBurger.push(indgridient);
     this.emit('update');
   }

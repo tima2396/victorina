@@ -53,14 +53,14 @@ class View extends EventEmitter {
     View.#printBurger(this.#model.getCurrentBurger());
     console.log();
 
-    console.log('Введите название нового ингридиента или оставьте пустым, чтобы закончить');
-    // считываем следующий ингридиент из командной строки
-    const ingridient = readlineSync.question('> ');
+    console.log('Введите название нового ингредиента или оставьте пустым, чтобы закончить');
+    // считываем следующий ингредиент из командной строки
+    const ingredient = readlineSync.question('> ');
 
-    // генерируем событие addIngridient если пользователь хочет добавить ингридиент
+    // генерируем событие addIngredient если пользователь хочет добавить ингредиент
     // и stopMakeBurger если хочет закончить создание бургера
-    if (ingridient) {
-      this.emit('addIngridient', ingridient);
+    if (ingredient) {
+      this.emit('addIngredient', ingredient);
     } else {
       this.emit('stopMakeBurger');
     }
