@@ -1,6 +1,4 @@
-const { EventEmitter } = require('events');
-
-class Model extends EventEmitter {
+class Model {
   // Страница, на которй в данный момент находится пользователь:
   // 'burgers' - стартовая страница, на которой отображаются все созданные бургеры
   // 'make-burger' - страница создания нового бургера
@@ -32,13 +30,11 @@ class Model extends EventEmitter {
   startMakeBurger() {
     this.#page = 'make-burger';
     this.#currentBurger = [];
-    this.emit('update');
   }
 
   // Добавить новый ингридиент к текущему бургеру
   addIngridient(indgridient) {
     this.#currentBurger.push(indgridient);
-    this.emit('update');
   }
 
   // Закончить создание бургера и перейти на стартовую страницу
@@ -48,7 +44,6 @@ class Model extends EventEmitter {
       this.#currentBurger = undefined;
     }
     this.#page = 'burgers';
-    this.emit('update');
   }
 }
 

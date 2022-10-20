@@ -6,23 +6,31 @@ class Controller {
   constructor(model, view) {
     this.#model = model;
     this.#view = view;
-
-    // Здесь подпишемся на события View и решим, что нужно делать с моделью при их возникновении
-    // View наследует метод on от класса EventEmitter
-    this.#view.on(
-      // каждый раз когда View генерирует событие 'makeBurger'
-      'makeBurger',
-      // вызываем метод startMakeBurger модели
-      () => this.#model.startMakeBurger()
-    );
-    this.#view.on('addIngridient', (ingridient) => this.#model.addIngridient(ingridient));
-    this.#view.on('stopMakeBurger', () => this.#model.stopMakeBurger());
   }
 
   // Контроллер - главный класс, с его метода run начинается работа нашего приложения
   run() {
-    // попросим View отобразить первоначальный экран
-    this.#view.render();
+    // отображаем ту страницу, на которой мы сейчас находимся
+    switch (this.#model.getPage()) {
+      case 'burgers': {
+        this.#view.renderBurgersPage(this.#model.getBurgers());
+        this.#model.startMakeBurger();
+        return this.run();
+      }
+
+      case 'make-burger': {
+        const ingridient = this.#view.renderMakeBurgerPage(this.#model.getCurrentBurger());
+        if (ingridient) {
+          this.#model.addIngridient(ingridient);
+        } else {
+          this.#model.stopMakeBurger();
+        }
+        return this.run();
+      }
+
+      default:
+        throw new Error('Wrong page');
+    }
   }
 }
 
