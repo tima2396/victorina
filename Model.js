@@ -1,9 +1,9 @@
-const { EventEmitter } = require('events');
+const { EventEmitter } = require("events");
 
 class Model extends EventEmitter {
   // Сначала приложение находится на стартовой странице выбора темы.
   // Подумай, какие ещё страницы будут в твоём приложении?
-  #page = 'select-topic';
+  #page = "select-topic";
 
   // Подумай какие данные будут нужны View, чтобы рендерить эти страницы.
   // Исходя из этих данных определись какие поля будет содержать модель.
