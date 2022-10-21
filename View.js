@@ -1,30 +1,15 @@
-const { EventEmitter } = require('events');
+const readlineSync = require('readline-sync');
 
-class View extends EventEmitter {
-  #model;
+class View {
+  renderSelectTopicPage(themes) {
+    // нам пришёл список тем, нужно вывести их на экран
+    // здесь твой код...
 
-  constructor(model) {
-    super();
-    this.#model = model;
+    // затем даём пользователю возможность выбрать тему
+    const topic = readlineSync.question('Введите тему: ');
 
-    // каждый раз когда модель изменяется обновляем отображение
-    this.#model.on('update', () => this.render());
-  }
-
-  render() {
-    // отображаем ту страницу, на которой мы сейчас находимся
-    switch (this.#model.getPage()) {
-      case 'start':
-        return this.renderStartPage();
-      // ...
-    }
-  }
-
-  renderStartPage() {
-    // здесь попросим у модели список тем и предоставим пользователю выбор
-    // ...
-    // теперь уведомим контроллер о том что пользователь выбрал тему
-    this.emit('topicChosen', topic);
+    // и возвращаем контроллеру выбранную тему
+    return topic;
   }
 }
 

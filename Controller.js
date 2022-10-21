@@ -6,15 +6,19 @@ class Controller {
   constructor(model, view) {
     this.#model = model;
     this.#view = view;
-
-    // здесь будем ловить события View и соответственно изменять Model
-    this.#view.on('topicChosen', (topic) => this.#model.chooseTopic(topic));
-    // ...
   }
 
   run() {
-    // попросим View отобразить первоначальный экран
-    this.#view.render();
+    const model = this.#model;
+    // отображаем ту страницу, на которой мы сейчас находимся
+    switch (model.getPage()) {
+      case 'start': {
+        const topic = this.#view.renderSelectTopicPage(model.getTopics());
+        model.chooseTopic(topic);
+        return this.run();
+      }
+      // ...
+    }
   }
 }
 

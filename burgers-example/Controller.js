@@ -10,7 +10,7 @@ class Controller {
 
   // Контроллер - главный класс, с его метода run начинается работа нашего приложения
   run() {
-    // отображаем ту страницу, на которой мы сейчас находимся
+    // отображаем ту страницу, на которой сейчас находится пользователь
     switch (this.#model.getPage()) {
       case 'burgers': {
         this.#view.renderBurgersPage(this.#model.getBurgers());
